@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        docker {
+            image 'image.mylab-siab.com/learning/lol'
+            args '-p 3000:3000'
+        }
+    }
+    environment {
+        CI = 'true'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+        stage('kirim) {
+            steps {
+                sh 'npm run build & npm start & sleep 1'
+            }
+        }
+    }
+}
