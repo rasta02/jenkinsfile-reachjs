@@ -23,6 +23,7 @@ pipeline {
         stage('kirim') {
             steps {
                 sh 'npm run build & npm start & sleep 1'
+            }
         }
     }
 }
