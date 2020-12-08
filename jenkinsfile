@@ -8,7 +8,8 @@ pipeline {
     environment {
         CI = 'true'
     }
-    stages {
+
+     stages {
         stage('Build') {
             steps {
                 sh 'npm install'
@@ -19,10 +20,9 @@ pipeline {
                 sh 'npm test'
             }
         }
-        stage('kirim) {
+        stage('kirim') {
             steps {
                 sh 'npm run build & npm start & sleep 1'
-            }
         }
     }
 }
